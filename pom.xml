@@ -3,11 +3,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <description>The 'Learn Spring AI' Course: Retrieval Augmented Generation (RAG)</description>
-    <name>retrieval-augmented-generation</name>
+    <description>The 'Learn Spring AI' Course: Working with the Model-Context-Protocol (MCP)</description>
+    <name>working-with-the-model-context-protocol</name>
 
     <groupId>com.baeldung</groupId>
-    <artifactId>lsai-retrieval-augmented-generation</artifactId>
+    <artifactId>lsai-working-with-the-model-context-protocol</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
