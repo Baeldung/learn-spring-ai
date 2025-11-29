@@ -1,3 +1,3 @@
-# Learn Spring AI - Introduction to Spring AI
+# Learn Spring AI - The ChatClient in Depth
 
-This is the codebase for Module "Introduction to Spring AI" of Learn Spring AI
+This is the codebase for Module "The ChatClient in Depth" of Learn Spring AI
