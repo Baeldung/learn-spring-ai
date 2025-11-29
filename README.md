@@ -1,3 +1,3 @@
-# Learn Spring AI - The ChatClient in Depth
+# Learn Spring AI - Retrieval Augmented Generation (RAG)
 
-This is the codebase for Module "The ChatClient in Depth" of Learn Spring AI
+This is the codebase for Module "Retrieval Augmented Generation (RAG)" of Learn Spring AI
