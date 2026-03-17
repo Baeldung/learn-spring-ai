@@ -12,5 +12,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>prompts-roles-start</module>
+        <module>prompts-roles-end</module>
     </modules>
 </project>
