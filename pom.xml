@@ -12,5 +12,6 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>first-spring-ai-app-end</module>
     </modules>
 </project>
