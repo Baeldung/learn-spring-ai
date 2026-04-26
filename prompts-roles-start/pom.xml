@@ -12,7 +12,8 @@
 	<artifactId>prompts-roles-start</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>prompts-roles-start</name>
-	
+	<description>Learn Spring AI - Prompts and Roles - Start</description>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.ai</groupId>

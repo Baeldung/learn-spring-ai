@@ -14,5 +14,11 @@
     <modules>
         <module>prompts-roles-start</module>
         <module>prompts-roles-end</module>
+        <module>ai-providers-start</module>
+        <module>ai-providers-end</module>
+        <module>streaming-responses-start</module>
+        <module>streaming-responses-end</module>
+        <module>structured-output-start</module>
+        <module>structured-output-end</module>
     </modules>
 </project>

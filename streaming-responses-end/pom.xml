@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.baeldung</groupId>
-	<artifactId>prompts-roles-end</artifactId>
+	<artifactId>streaming-responses-end</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>prompts-roles-end</name>
-	<description>Learn Spring AI - Prompts and Roles - End</description>
+	<name>streaming-responses-end</name>
+	<description>Learn Spring AI - Streaming Responses with WebFlux - End</description>
 
 	<dependencies>
 		<dependency>
@@ -23,6 +23,11 @@
         <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 
 		<dependency>

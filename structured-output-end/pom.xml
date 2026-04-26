@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.baeldung</groupId>
-	<artifactId>prompts-roles-end</artifactId>
+	<artifactId>structured-output-end</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>prompts-roles-end</name>
-	<description>Learn Spring AI - Prompts and Roles - End</description>
+	<name>structured-output-end</name>
+	<description>Learn Spring AI - Getting Structured Output (JSON/POJOs) - End</description>
 
 	<dependencies>
 		<dependency>
