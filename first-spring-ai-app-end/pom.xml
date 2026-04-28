@@ -5,13 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.5.9</version>
+		<version>3.5.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.baeldung</groupId>
 	<artifactId>first-spring-ai-app-end</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>first-spring-ai-app-end</name>
+	<description>Learn Spring AI - Setting Up Our First Spring AI Application and Chat Endpoint - End</description>
 
 	<dependencies>
 		<dependency>
@@ -53,6 +54,6 @@
 	</build>
 	<properties>
 		<java.version>25</java.version>
-		<spring-ai.version>1.1.2</spring-ai.version>
+		<spring-ai.version>1.1.0</spring-ai.version>
 	</properties>
 </project>
