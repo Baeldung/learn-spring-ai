@@ -37,9 +37,8 @@ class ChatControllerIntegrationTest {
 
     @Test
     void whenStreamQuestion_thenReturnsStreamResponse() throws Exception {
-        String result = mockMvc
-            .perform(get("/stream").param("message", "What does JDK stand for in Java?")
-                    .accept(MediaType.TEXT_EVENT_STREAM))
+        String result = mockMvc.perform(get("/stream").param("message", "What does JDK stand for in Java?")
+                .accept(MediaType.TEXT_EVENT_STREAM))
             .andExpect(status().isOk())
             .andReturn()
             .getResponse()

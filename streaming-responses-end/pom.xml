@@ -59,6 +59,6 @@
 	</build>
 	<properties>
 		<java.version>25</java.version>
-		<spring-ai.version>1.1.2</spring-ai.version>
+		<spring-ai.version>1.1.0</spring-ai.version>
 	</properties>
 </project>

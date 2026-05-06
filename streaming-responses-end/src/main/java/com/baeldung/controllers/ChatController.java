@@ -1,10 +1,12 @@
 package com.baeldung.controllers;
 
+import java.time.Duration;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import reactor.core.publisher.Flux;
 
 @RestController
@@ -29,6 +31,7 @@ public class ChatController {
         return chatClient.prompt()
             .user(message)
             .stream()
-            .content();
+            .content()
+            .delayElements(Duration.ofMillis(500));
     }
 }
