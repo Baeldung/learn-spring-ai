@@ -12,5 +12,9 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>creating-embeddings-start</module>
+        <module>creating-embeddings-end</module>
+        <module>ingesting-data-start</module>
+        <module>ingesting-data-end</module>
     </modules>
 </project>
