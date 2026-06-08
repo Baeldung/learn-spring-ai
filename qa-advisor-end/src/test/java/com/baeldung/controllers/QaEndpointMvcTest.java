@@ -51,9 +51,9 @@ class QaEndpointMvcTest {
             ChatClient.ChatClientRequestSpec requestSpec = mock(ChatClient.ChatClientRequestSpec.class);
             ChatClient.CallResponseSpec callResponseSpec = mock(ChatClient.CallResponseSpec.class);
 
-            when(builder.defaultAdvisors(any(QuestionAnswerAdvisor.class))).thenReturn(builder);
             when(builder.build()).thenReturn(chatClient);
             when(chatClient.prompt()).thenReturn(requestSpec);
+            when(requestSpec.advisors(any(QuestionAnswerAdvisor.class))).thenReturn(requestSpec);
             when(requestSpec.user(any(String.class))).thenReturn(requestSpec);
             when(requestSpec.call()).thenReturn(callResponseSpec);
             when(callResponseSpec.content()).thenReturn(STUB_ANSWER);

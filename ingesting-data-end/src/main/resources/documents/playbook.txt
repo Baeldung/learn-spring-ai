@@ -1,5 +1,0 @@
-Workers are assigned Tasks within Campaigns.
-Each Task moves through a status lifecycle: PENDING, IN_PROGRESS, DONE.
-Campaigns group related Tasks under a shared deadline and budget.
-Once a Worker finishes a Task, they can pick up the next pending one in the same Campaign.
-Campaign budgets above ten thousand euros require approval from the Finance team.

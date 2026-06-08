@@ -33,6 +33,6 @@ class DocumentSeederIngestionTest {
         List<Document> ingested = captor.getValue();
         assertThat(ingested).isNotEmpty();
         assertThat(ingested.get(0).getMetadata()).containsKey("file_name");
-        assertThat(ingested.get(0).getMetadata()).containsEntry("file_name", "playbook.pdf");
+        assertThat(ingested.get(0).getMetadata()).containsEntry("file_name", "policies.pdf");
     }
 }

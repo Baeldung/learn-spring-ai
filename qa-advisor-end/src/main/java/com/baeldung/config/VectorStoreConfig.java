@@ -23,7 +23,7 @@ public class VectorStoreConfig {
             .searchRequest(SearchRequest.builder()
                 .topK(4)
                 .similarityThreshold(0.6)
-                .filterExpression("file_name == 'playbook.pdf'")
+                .filterExpression("file_name == 'policies.pdf'")
                 .build())
             .build();
     }

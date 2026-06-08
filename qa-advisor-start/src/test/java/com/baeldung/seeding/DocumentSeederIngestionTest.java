@@ -35,6 +35,6 @@ class DocumentSeederIngestionTest {
         assertThat(ingested.get(0)
             .getMetadata()).containsKey("file_name");
         assertThat(ingested.get(0)
-            .getMetadata()).containsEntry("file_name", "playbook.pdf");
+            .getMetadata()).containsEntry("file_name", "policies.pdf");
     }
 }

@@ -19,10 +19,14 @@ public class DocumentSeeder implements CommandLineRunner {
 
     private final VectorStore vectorStore;
     private final Resource source;
-    private final TokenTextSplitter splitter = new TokenTextSplitter();
+    private final TokenTextSplitter splitter = TokenTextSplitter.builder()
+        .withChunkSize(140)
+        .withMinChunkSizeChars(60)
+        .withMinChunkLengthToEmbed(20)
+        .build();
 
     public DocumentSeeder(VectorStore vectorStore,
-        @Value("classpath:documents/playbook.pdf") Resource source) {
+        @Value("classpath:documents/policies.pdf") Resource source) {
         this.vectorStore = vectorStore;
         this.source = source;
     }

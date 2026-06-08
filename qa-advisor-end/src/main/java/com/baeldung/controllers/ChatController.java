@@ -15,11 +15,12 @@ public class ChatController {
 
     private final ChatClient chatClient;
     private final VectorStore vectorStore;
+    private final QuestionAnswerAdvisor questionAnswerAdvisor;
 
     public ChatController(ChatClient.Builder builder, VectorStore vectorStore, QuestionAnswerAdvisor questionAnswerAdvisor) {
-        this.chatClient = builder.defaultAdvisors(questionAnswerAdvisor)
-            .build();
+        this.chatClient = builder.build();
         this.vectorStore = vectorStore;
+        this.questionAnswerAdvisor = questionAnswerAdvisor;
     }
 
     @GetMapping("/chat")
@@ -42,6 +43,7 @@ public class ChatController {
     @GetMapping("/qa")
     public String qa(@RequestParam String q) {
         return chatClient.prompt()
+            .advisors(questionAnswerAdvisor)
             .user(q)
             .call()
             .content();
