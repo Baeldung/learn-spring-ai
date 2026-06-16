@@ -1,5 +1,6 @@
 package com.baeldung.controllers;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -31,5 +32,45 @@ class ChatControllerIntegrationTest {
 
         logger.info("AI Result: " + result);
         assertTrue(result.contains("Java"));
+    }
+
+    @Test
+    void whenInScopeMarketingPmRequest_thenReturnsOkAndNonBlankResponse() throws Exception {
+        String result = mockMvc.perform(get("/marketing-pm")
+                        .param("message", "We are launching a new product in Q4. How should I structure the timeline?"))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        logger.info("Marketing PM in-scope result: " + result);
+        assertFalse(result.isBlank());
+    }
+
+    @Test
+    void whenOutOfScopeMarketingPmRequest_thenReturnsOkAndNonBlankResponse() throws Exception {
+        String result = mockMvc.perform(get("/marketing-pm")
+                        .param("message", "Write a catchy slogan for our new coffee brand"))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        logger.info("Marketing PM out-of-scope result: " + result);
+        assertFalse(result.isBlank());
+    }
+
+    @Test
+    void whenCampaignPlanRequest_thenReturnsOkAndNonBlankResponse() throws Exception {
+        String result = mockMvc.perform(get("/campaign-plan")
+                        .param("campaign", "Customer Referral")
+                        .param("channel", "Email"))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        logger.info("Campaign plan result: " + result);
+        assertFalse(result.isBlank());
     }
 }
