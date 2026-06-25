@@ -111,7 +111,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task [id=" + id + ", name=" + name + ", description=" + description + ", dueDate=" + dueDate + ", status=" + status
-                + ", campaign=" + campaign + ", assignee=" + assignee + "]";
+        return "Task [id=" + id + ", name=" + name + ", description=" + description + ", dueDate=" + dueDate + ", status=" + status + ", campaign=" + campaign +
+            ", assignee=" + assignee + "]";
     }
 }

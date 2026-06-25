@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -38,7 +38,7 @@ class ChatControllerIntegrationTest {
     @Test
     void whenStreamQuestion_thenReturnsStreamResponse() throws Exception {
         String result = mockMvc.perform(get("/stream").param("message", "What does JDK stand for in Java?")
-                .accept(MediaType.TEXT_EVENT_STREAM))
+            .accept(MediaType.TEXT_EVENT_STREAM))
             .andExpect(status().isOk())
             .andReturn()
             .getResponse()

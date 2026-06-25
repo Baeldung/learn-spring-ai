@@ -28,7 +28,7 @@ public class Task {
         this.dueDate = dueDate;
         this.status = status;
         campaign.getTasks()
-                .add(this);
+            .add(this);
         this.campaign = campaign;
         this.assignee = assignee;
     }
@@ -111,8 +111,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task [id=" + id + ", name=" + name + ", description=" + description + ", dueDate=" + dueDate + ", status=" + status
-                + ", campaign=" + campaign +
-                ", assignee=" + assignee + "]";
+        return "Task [id=" + id + ", name=" + name + ", description=" + description + ", dueDate=" + dueDate + ", status=" + status + ", campaign=" + campaign +
+            ", assignee=" + assignee + "]";
     }
 }
