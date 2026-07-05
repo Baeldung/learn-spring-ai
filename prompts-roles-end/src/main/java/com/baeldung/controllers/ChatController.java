@@ -1,6 +1,12 @@
 package com.baeldung.controllers;
 
+import java.util.List;
+
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.messages.AssistantMessage;
+import org.springframework.ai.chat.messages.Message;
+import org.springframework.ai.chat.messages.SystemMessage;
+import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,10 +53,25 @@ public class ChatController {
                 for a {campaign} campaign launching on {channel}. \
                 List 3 key milestones.""";
 
-        return chatClient.prompt()
+        String response = chatClient.prompt()
                 .user(u -> u.text(templateText)
                         .param("campaign", campaign)
                         .param("channel", channel))
+                .call()
+                .content();
+        return response;
+    }
+
+    @GetMapping("/marketing-pm-followup")
+    public String marketingPmFollowUp(@RequestParam String message) {
+        List<Message> messages = List.of(
+                new SystemMessage("You are a Marketing Project Manager who coordinates campaign timelines and budgets."),
+                new UserMessage("We are launching a new product in Q4. How should I structure the timeline?"),
+                new AssistantMessage("Here's a draft campaign timeline: kickoff, creative concepting, production, QA, and media buying."),
+                new UserMessage(message));
+
+        return chatClient.prompt()
+                .messages(messages)
                 .call()
                 .content();
     }

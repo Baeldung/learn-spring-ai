@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
@@ -71,6 +71,19 @@ class ChatControllerIntegrationTest {
                 .getContentAsString();
 
         logger.info("Campaign plan result: " + result);
+        assertFalse(result.isBlank());
+    }
+
+    @Test
+    void whenMarketingPmFollowUpRequest_thenReturnsOkAndNonBlankResponse() throws Exception {
+        String result = mockMvc.perform(get("/marketing-pm-followup")
+                        .param("message", "Who owns the creative concepting step?"))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        logger.info("Marketing PM follow-up result: " + result);
         assertFalse(result.isBlank());
     }
 }
