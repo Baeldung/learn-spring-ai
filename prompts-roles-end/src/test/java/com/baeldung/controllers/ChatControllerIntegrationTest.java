@@ -25,10 +25,10 @@ class ChatControllerIntegrationTest {
     @Test
     void whenAskQuestion_thenReturnsStringResponse() throws Exception {
         String result = mockMvc.perform(get("/chat").param("message", "What does JDK stand for in Java?"))
-                .andExpect(status().isOk())
-                .andReturn()
-                .getResponse()
-                .getContentAsString();
+            .andExpect(status().isOk())
+            .andReturn()
+            .getResponse()
+            .getContentAsString();
 
         logger.info("AI Result: " + result);
         assertTrue(result.contains("Java"));
@@ -37,11 +37,11 @@ class ChatControllerIntegrationTest {
     @Test
     void whenInScopeMarketingPmRequest_thenReturnsOkAndNonBlankResponse() throws Exception {
         String result = mockMvc.perform(get("/marketing-pm")
-                        .param("message", "We are launching a new product in Q4. How should I structure the timeline?"))
-                .andExpect(status().isOk())
-                .andReturn()
-                .getResponse()
-                .getContentAsString();
+            .param("message", "We are launching a new product in Q4. How should I structure the timeline?"))
+            .andExpect(status().isOk())
+            .andReturn()
+            .getResponse()
+            .getContentAsString();
 
         logger.info("Marketing PM in-scope result: " + result);
         assertFalse(result.isBlank());
@@ -50,11 +50,11 @@ class ChatControllerIntegrationTest {
     @Test
     void whenOutOfScopeMarketingPmRequest_thenReturnsOkAndNonBlankResponse() throws Exception {
         String result = mockMvc.perform(get("/marketing-pm")
-                        .param("message", "Write a catchy slogan for our new coffee brand"))
-                .andExpect(status().isOk())
-                .andReturn()
-                .getResponse()
-                .getContentAsString();
+            .param("message", "Write a catchy slogan for our new coffee brand"))
+            .andExpect(status().isOk())
+            .andReturn()
+            .getResponse()
+            .getContentAsString();
 
         logger.info("Marketing PM out-of-scope result: " + result);
         assertFalse(result.isBlank());
@@ -63,12 +63,12 @@ class ChatControllerIntegrationTest {
     @Test
     void whenCampaignPlanRequest_thenReturnsOkAndNonBlankResponse() throws Exception {
         String result = mockMvc.perform(get("/campaign-plan")
-                        .param("campaign", "Customer Referral")
-                        .param("channel", "Email"))
-                .andExpect(status().isOk())
-                .andReturn()
-                .getResponse()
-                .getContentAsString();
+            .param("campaign", "Customer Referral")
+            .param("channel", "Email"))
+            .andExpect(status().isOk())
+            .andReturn()
+            .getResponse()
+            .getContentAsString();
 
         logger.info("Campaign plan result: " + result);
         assertFalse(result.isBlank());
@@ -77,11 +77,11 @@ class ChatControllerIntegrationTest {
     @Test
     void whenMarketingPmFollowUpRequest_thenReturnsOkAndNonBlankResponse() throws Exception {
         String result = mockMvc.perform(get("/marketing-pm-followup")
-                        .param("message", "Who owns the creative concepting step?"))
-                .andExpect(status().isOk())
-                .andReturn()
-                .getResponse()
-                .getContentAsString();
+            .param("message", "Who owns the creative concepting step?"))
+            .andExpect(status().isOk())
+            .andReturn()
+            .getResponse()
+            .getContentAsString();
 
         logger.info("Marketing PM follow-up result: " + result);
         assertFalse(result.isBlank());
