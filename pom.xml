@@ -12,5 +12,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>mcp-client-start</module>
+        <module>mcp-client-end</module>
     </modules>
 </project>
