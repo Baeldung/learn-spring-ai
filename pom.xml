@@ -12,5 +12,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>best-practices-start</module>
+        <module>best-practices-end</module>
     </modules>
 </project>
