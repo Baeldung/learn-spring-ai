@@ -14,5 +14,7 @@
     <modules>
         <module>best-practices-start</module>
         <module>best-practices-end</module>
+        <module>ai-testing-start</module>
+        <module>ai-testing-end</module>
     </modules>
 </project>
