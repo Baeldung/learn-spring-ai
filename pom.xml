@@ -16,5 +16,7 @@
         <module>best-practices-end</module>
         <module>ai-testing-start</module>
         <module>ai-testing-end</module>
+        <module>rag-evaluators-start</module>
+        <module>rag-evaluators-end</module>
     </modules>
 </project>

@@ -2,6 +2,7 @@ package com.baeldung.controllers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -10,6 +11,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 import org.springframework.ai.chat.messages.AssistantMessage;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.model.ChatResponse;
@@ -52,5 +54,9 @@ class ChatControllerIntegrationTest {
             .getContentAsString();
 
         assertEquals("JDK stands for Java Development Kit.", result);
+
+        ArgumentCaptor<Prompt> promptCaptor = ArgumentCaptor.forClass(Prompt.class);
+        verify(chatModel).call(promptCaptor.capture());
+        assertEquals("What does JDK stand for in Java?", promptCaptor.getValue().getUserMessage().getText());
     }
 }
