@@ -48,7 +48,7 @@ class RagEvaluatorIntegrationTest {
         RelevancyEvaluator evaluator = new RelevancyEvaluator(ChatClient.builder(chatModel));
         EvaluationResponse response = evaluator.evaluate(request);
 
-        assertTrue(response.isPass());
+        assertTrue(response.isPass(), request::toString);
     }
 
     @Test
@@ -58,18 +58,20 @@ class RagEvaluatorIntegrationTest {
         EvaluationRequest supportedRequest = createEvaluationRequest();
         EvaluationResponse supportedResponse = evaluator.evaluate(supportedRequest);
 
-        assertTrue(supportedResponse.isPass());
+        assertTrue(supportedResponse.isPass(), supportedRequest::toString);
 
-        EvaluationRequest unsupportedRequest = new EvaluationRequest(QUESTION, List.of(new Document(CONTEXT)), "The Finance team approves campaign budgets within 24 hours.");
+        EvaluationRequest unsupportedRequest = new EvaluationRequest(QUESTION, List.of(new Document(CONTEXT)),
+            "The Finance team approves campaign budgets within 24 hours.");
         EvaluationResponse unsupportedResponse = evaluator.evaluate(unsupportedRequest);
 
-        assertFalse(unsupportedResponse.isPass());
+        assertFalse(unsupportedResponse.isPass(), unsupportedRequest::toString);
     }
 
     private EvaluationRequest createEvaluationRequest() {
         QuestionAnswerAdvisor advisor = QuestionAnswerAdvisor.builder(vectorStore).build();
         ChatResponse chatResponse = ChatClient.builder(chatModel).build().prompt().user(QUESTION).advisors(advisor).call().chatResponse();
 
-        return new EvaluationRequest(QUESTION, chatResponse.getMetadata().get(QuestionAnswerAdvisor.RETRIEVED_DOCUMENTS), chatResponse.getResult().getOutput().getText());
+        return new EvaluationRequest(QUESTION, chatResponse.getMetadata().get(QuestionAnswerAdvisor.RETRIEVED_DOCUMENTS),
+            chatResponse.getResult().getOutput().getText());
     }
 }
